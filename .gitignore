@@ -3,9 +3,9 @@
 
 .idea/
 __pycache__/
-FL3 Python 3 SampleApp1.1/
 
 # Ignore certificates
+cobrand.json
 
 # User-specific stuff
 .idea/**/workspace.xml
