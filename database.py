@@ -7,7 +7,7 @@ with open('mongo.json') as f:
     port = int(data['port'])
     client = MongoClient(uri, port)
     db = client.data
-    transactions_collection = db.raw2
+    transactions_collection = db.raw
 
 
 def save_transactions(transaction_entries):
