@@ -3,13 +3,18 @@ import requests
 
 
 class Account:
-    def __init__(self, id_, name):
+    def __init__(self, id_, name, number):
         self._id = id_
         self._name = name
+        self._number = number
 
     @property
     def name(self):
         return self._name
+
+    @property
+    def number(self):
+        return self._number
 
     def __repr__(self):
         return 'Account({}, {})'.format(self._id, self._name)
@@ -29,5 +34,5 @@ def accounts(user_session):
     accounts_raw = response_json['account']
     accounts_dict = {}
     for account in accounts_raw:
-        accounts_dict[account['id']] = Account(account['id'], account['providerName'])
+        accounts_dict[account['id']] = Account(account['id'], account['providerName'], account['accountNumber'])
     return accounts_dict

@@ -19,9 +19,10 @@ def transform(username, transaction_entries, accounts_dict):
         timestamp = timestamp_transform(t['lastUpdated'])
         amount = '{}$'.format(t['amount']['amount'])
         account_name = accounts_dict[account_id].name
+        account_number = accounts_dict[account_id].number
         return {
             "userId": username,
-            "account": "whatever",
+            "account": account_number,
             "type": t['baseType'],
             "bank": account_name,
             "balance": balance,
