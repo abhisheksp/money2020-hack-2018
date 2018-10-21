@@ -6,6 +6,7 @@ __pycache__/
 
 # Ignore certificates
 cobrand.json
+mongo.json
 
 # User-specific stuff
 .idea/**/workspace.xml
