@@ -20,10 +20,11 @@ def transform(username, transaction_entries, accounts_dict):
         amount = '{}$'.format(t['amount']['amount'])
         account_name = accounts_dict[account_id].name
         account_number = accounts_dict[account_id].number
+        transaction_type = t['baseType'].lower()
         return {
             "userId": username,
             "account": account_number,
-            "type": t['baseType'],
+            "type": transaction_type,
             "bank": account_name,
             "balance": balance,
             "amount": amount,
