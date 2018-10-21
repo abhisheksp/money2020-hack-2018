@@ -15,7 +15,7 @@ def transform(username, transaction_entries, accounts_dict):
         account_id = t['accountId']
         if 'runningBalance' not in t:
             return
-        balance = t['runningBalance']['amount']
+        balance = '{}$'.format(t['runningBalance']['amount'])
         timestamp = timestamp_transform(t['lastUpdated'])
         amount = '{}$'.format(t['amount']['amount'])
         account_name = accounts_dict[account_id].name
@@ -29,9 +29,9 @@ def transform(username, transaction_entries, accounts_dict):
             "balance": balance,
             "amount": amount,
             "timeStamp": timestamp.strftime('%Y-%m-%d %H-%M-%S'),
-            "date": timestamp.day,
-            "month": timestamp.month,
-            "year": timestamp.year
+            "date": str(timestamp.day),
+            "month": str(timestamp.month),
+            "year": str(timestamp.year)
         }
 
     timestamp_transform = lambda t: datetime.datetime.strptime(t, "%Y-%m-%dT%H:%M:%SZ")
